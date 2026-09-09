@@ -3,15 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="THE CLIMBER — 孤高の人. Site-tributo ao mangá de Shin-ichi Sakamoto e ao personagem Buntaro Mori: escalada solo, silêncio e altitude.">
+<meta name="theme-color" content="#0a0a0a">
 <title>THE CLIMBER — 孤高の人 | Buntaro Mori</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Serif+JP:wght@400;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="grain"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress-bar" id="progressBar" role="progressbar" aria-label="Progresso de leitura" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+
+<a class="skip-link" href="#home">Pular para o conteúdo</a>
 
 <header class="nav" id="nav">
   <div class="nav-inner">
@@ -19,7 +24,7 @@
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
       <span></span><span></span><span></span>
     </button>
-    <nav class="nav-links" id="navLinks">
+    <nav class="nav-links" id="navLinks" aria-label="Navegação principal">
       <a href="#home">Início</a>
       <a href="#manga">O Mangá</a>
       <a href="#personagem">Personagem</a>
@@ -29,8 +34,10 @@
   </div>
 </header>
 
+<main>
+
 <section id="home" class="hero">
-  <img src="img/images (19)_Nero_AI_Image_Upscaler_Anime_Face.jpeg" alt="Buntaro Mori observando o horizonte sob um céu estrelado" class="hero-bg">
+  <img src="img/images (19)_Nero_AI_Image_Upscaler_Anime_Face.jpeg" alt="Buntaro Mori observando o horizonte sob um céu estrelado" class="hero-bg" data-parallax="0.35" fetchpriority="high" decoding="async">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <p class="kicker">孤高の人 — KOKOU NO HITO</p>
@@ -38,11 +45,12 @@
     <p class="hero-sub">A história de um homem que só encontrou liberdade no silêncio absoluto das montanhas.</p>
     <a href="#manga" class="btn">Conhecer a história ↓</a>
   </div>
+  <canvas id="snowCanvas" class="snow-canvas" aria-hidden="true"></canvas>
   <div class="scroll-cue"><span></span></div>
 </section>
 
 <section class="quote-strip">
-  <img src="img/images (18)_Nero_AI_Image_Upscaler_Anime_Face.jpeg" alt="Buntaro Mori na floresta iluminada" class="quote-bg">
+  <img src="img/images (18)_Nero_AI_Image_Upscaler_Anime_Face.jpeg" alt="Buntaro Mori na floresta iluminada" class="quote-bg" data-parallax="0.2" loading="lazy" decoding="async">
   <div class="quote-overlay"></div>
   <div class="quote-strip-content reveal">
     <p class="quote-line">"COME TO MOUNTAINS<br>TO BE FREE."</p>
@@ -51,8 +59,9 @@
 </section>
 
 <section id="manga" class="section">
-  <div class="section-inner grid-2">
-    <div class="reveal">
+  <div class="section-inner grid-2 panels">
+    <span class="chapter-num" aria-hidden="true">01</span>
+    <div class="reveal panel panel-text">
       <p class="eyebrow">O Mangá</p>
       <h2>孤高の人<br><span class="en">Kokou no Hito</span></h2>
       <p>
@@ -71,8 +80,8 @@
         isolamento, obsessão e a procura por um lugar onde seja possível simplesmente respirar.
       </p>
     </div>
-    <div class="reveal img-frame">
-      <img src="img/images (17).jpg" alt="Buntaro Mori de costas observando o acampamento sob o céu noturno">
+    <div class="reveal panel img-frame">
+      <img src="img/images (17).jpg" alt="Buntaro Mori de costas observando o acampamento sob o céu noturno" loading="lazy" decoding="async">
       <span class="caption">Acampamento sob o céu de inverno</span>
     </div>
   </div>
@@ -80,9 +89,17 @@
 
 <section id="personagem" class="section alt">
   <div class="section-inner grid-2 reverse">
-    <div class="reveal img-frame portrait">
-      <img src="img/images (25).jpg" alt="Retrato de Buntaro Mori com capacete e óculos de escalada">
-      <span class="caption">Buntaro Mori</span>
+    <span class="chapter-num" aria-hidden="true">02</span>
+    <div class="reveal id-card">
+      <div class="id-card-frame">
+        <span class="corner tl" aria-hidden="true"></span>
+        <span class="corner tr" aria-hidden="true"></span>
+        <span class="corner bl" aria-hidden="true"></span>
+        <span class="corner br" aria-hidden="true"></span>
+        <img src="img/images (25).jpg" alt="Retrato de Buntaro Mori com capacete e óculos de escalada" loading="lazy" decoding="async">
+      </div>
+      <p class="id-card-label">Ficha de Expedição</p>
+      <p class="id-card-name">Buntaro Mori</p>
     </div>
     <div class="reveal">
       <p class="eyebrow">Personagem</p>
@@ -109,54 +126,58 @@
 
 <section id="galeria" class="section">
   <div class="section-inner">
+    <span class="chapter-num center" aria-hidden="true">03</span>
     <p class="eyebrow center">Galeria</p>
     <h2 class="center">Cenas da Montanha</h2>
     <div class="gallery">
-      <div class="gallery-item reveal" data-full="img/images (16).jpg">
-        <img src="img/images (16).jpg" alt="Buntaro Mori olhando para o céu estrelado">
-      </div>
-      <div class="gallery-item reveal" data-full="img/images (17).jpg">
-        <img src="img/images (17).jpg" alt="Buntaro Mori de costas no acampamento">
-      </div>
-      <div class="gallery-item reveal" data-full="img/images (18)_Nero_AI_Image_Upscaler_Anime_Face.jpeg">
-        <img src="img/images (18)_Nero_AI_Image_Upscaler_Anime_Face.jpeg" alt="Buntaro Mori na floresta com luz solar">
-      </div>
-      <div class="gallery-item reveal" data-full="img/images (19)_Nero_AI_Image_Upscaler_Anime_Face.jpeg">
-        <img src="img/images (19)_Nero_AI_Image_Upscaler_Anime_Face.jpeg" alt="Buntaro Mori em uma trilha de montanha à noite">
-      </div>
-      <div class="gallery-item reveal" data-full="img/images (20).jpg">
-        <img src="img/images (20).jpg" alt="Close no rosto de um alpinista com óculos de neve">
-      </div>
-      <div class="gallery-item reveal" data-full="img/images (21).jpg">
-        <img src="img/images (21).jpg" alt="Close dramático de alpinista com óculos e vento">
-      </div>
-      <div class="gallery-item reveal" data-full="img/images (25).jpg">
-        <img src="img/images (25).jpg" alt="Retrato de Buntaro Mori com capacete">
-      </div>
+      <button type="button" class="gallery-item reveal gi-big" data-full="img/images (16).jpg" data-caption="Buntaro Mori olhando para o céu estrelado">
+        <img src="img/images (16).jpg" alt="Buntaro Mori olhando para o céu estrelado" loading="lazy" decoding="async">
+      </button>
+      <button type="button" class="gallery-item reveal" data-full="img/images (17).jpg" data-caption="Buntaro Mori de costas no acampamento">
+        <img src="img/images (17).jpg" alt="Buntaro Mori de costas no acampamento" loading="lazy" decoding="async">
+      </button>
+      <button type="button" class="gallery-item reveal gi-tall" data-full="img/images (18)_Nero_AI_Image_Upscaler_Anime_Face.jpeg" data-caption="Buntaro Mori na floresta com luz solar">
+        <img src="img/images (18)_Nero_AI_Image_Upscaler_Anime_Face.jpeg" alt="Buntaro Mori na floresta com luz solar" loading="lazy" decoding="async">
+      </button>
+      <button type="button" class="gallery-item reveal" data-full="img/images (19)_Nero_AI_Image_Upscaler_Anime_Face.jpeg" data-caption="Buntaro Mori em uma trilha de montanha à noite">
+        <img src="img/images (19)_Nero_AI_Image_Upscaler_Anime_Face.jpeg" alt="Buntaro Mori em uma trilha de montanha à noite" loading="lazy" decoding="async">
+      </button>
+      <button type="button" class="gallery-item reveal" data-full="img/images (20).jpg" data-caption="Close no rosto de um alpinista com óculos de neve">
+        <img src="img/images (20).jpg" alt="Close no rosto de um alpinista com óculos de neve" loading="lazy" decoding="async">
+      </button>
+      <button type="button" class="gallery-item reveal gi-wide" data-full="img/images (21).jpg" data-caption="Close dramático de alpinista com óculos e vento">
+        <img src="img/images (21).jpg" alt="Close dramático de alpinista com óculos e vento" loading="lazy" decoding="async">
+      </button>
+      <button type="button" class="gallery-item reveal" data-full="img/images (25).jpg" data-caption="Retrato de Buntaro Mori com capacete">
+        <img src="img/images (25).jpg" alt="Retrato de Buntaro Mori com capacete" loading="lazy" decoding="async">
+      </button>
     </div>
   </div>
 </section>
 
 <section id="citacoes" class="section alt citacoes">
   <div class="section-inner">
+    <span class="chapter-num center" aria-hidden="true">04</span>
     <p class="eyebrow center">Citações</p>
     <h2 class="center">Palavras da Montanha</h2>
-    <div class="quotes-list">
-      <blockquote class="reveal">
-        <p>"Venho às montanhas para ser livre."</p>
-        <cite>Buntaro Mori</cite>
-      </blockquote>
-      <blockquote class="reveal">
-        <p>"Não é a montanha que conquistamos, mas a nós mesmos."</p>
-        <cite>Buntaro Mori</cite>
-      </blockquote>
-      <blockquote class="reveal">
-        <p>"Lá embaixo eu não sei quem sou. Aqui em cima, isso não importa."</p>
-        <cite>Buntaro Mori</cite>
-      </blockquote>
-    </div>
+  </div>
+  <div class="quotes-list">
+    <blockquote class="reveal">
+      <p>Venho às montanhas para ser livre.</p>
+      <cite>Buntaro Mori</cite>
+    </blockquote>
+    <blockquote class="reveal">
+      <p>Não é a montanha que conquistamos, mas a nós mesmos.</p>
+      <cite>Buntaro Mori</cite>
+    </blockquote>
+    <blockquote class="reveal">
+      <p>Lá embaixo eu não sei quem sou. Aqui em cima, isso não importa.</p>
+      <cite>Buntaro Mori</cite>
+    </blockquote>
   </div>
 </section>
+
+</main>
 
 <footer class="footer">
   <p>THE CLIMBER — 孤高の人</p>
@@ -164,11 +185,21 @@
   Todas as imagens pertencem aos seus respectivos autores/editoras e são usadas aqui apenas para fins de tributo.</p>
 </footer>
 
-<div class="lightbox" id="lightbox">
+<button type="button" class="back-to-top" id="backToTop" aria-label="Voltar ao topo">↑</button>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização ampliada da imagem" hidden>
   <button class="lightbox-close" id="lightboxClose" aria-label="Fechar">&times;</button>
-  <img src="" alt="" id="lightboxImg">
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Imagem anterior">&#10094;</button>
+  <figure class="lightbox-figure">
+    <img src="" alt="" id="lightboxImg">
+    <figcaption id="lightboxCaption"></figcaption>
+  </figure>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Próxima imagem">&#10095;</button>
+  <p class="lightbox-counter" id="lightboxCounter"></p>
 </div>
 
-<script src="script.js"></script>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+<script src="script.js" defer></script>
 </body>
 </html>
